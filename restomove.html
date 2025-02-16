@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Div Carousel</title>
+    <style>
+        .carousel-container {
+            max-width: 500px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .carousel-items {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-items .carousel-item {
+            width: 100%;
+            flex: 0 0 100%;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .prev-button {
+            left: 10px;
+        }
+        .next-button {
+            right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <section class="carousel-container">
+        <div class="carousel-items" id="carousel">
+            <div class="carousel-item">
+                <h2>Slide 1</h2>
+                <p>This is the content of the first slide.</p>
+            </div>
+            <div class="carousel-item">
+                <h2>Slide 2</h2>
+                <p>This is the content of the second slide.</p>
+            </div>
+            <div class="carousel-item">
+                <h2>Slide 3</h2>
+                <p>This is the content of the third slide.</p>
+            </div>
+        </div>
+        <button class="carousel-button prev-button" onclick="prevItem()"><</button>
+        <button class="carousel-button next-button" onclick="nextItem()">></button>
+    </section>
+
+    <script>
+        let currentIndex = 0;
+
+        function showItem(index) {
+            const carousel = document.getElementById('carousel');
+            const totalItems = carousel.children.length;
+            if (index >= totalItems) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = totalItems - 1;
+            } else {
+                currentIndex = index;
+            }
+            const offset = -currentIndex * 100 + '%';
+            carousel.style.transform = 'translateX(' + offset + ')';
+        }
+
+        function nextItem() {
+            showItem(currentIndex + 1);
+        }
+
+        function prevItem() {
+            showItem(currentIndex - 1);
+        }
+
+        // Initial item display
+        showItem(currentIndex);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

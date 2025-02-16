@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicious Bites Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .carousel-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .carousel-items {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-items .carousel-item {
+            width: 100%;
+            flex: 0 0 100%;
+            text-align: center;
+            padding: 100px;
+            box-sizing: border-box;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .prev-button {
+            left: 10px;
+        }
+
+        .next-button {
+            right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2 style="margin: 80px;">Delicious<br> Bites Menu</h2>
+        <input id="search" type="text" name="search" placeholder="search here" />
+        <input type="image" src="search.webp" alt="submit button" width="30px" height="30px">
+        <div class="link">
+        <a class="btn" href="#about us">About Us</a>
+        <a class="btn" href="#menu">Menu</a>
+        <a class="btn" href="#contactUs">Contact us</a>
+    </div>
+        <a style="margin: 70px;" class="sign" href="http://127.0.0.1:5501/information.html">Sign Up</a>
+        <hr>
+    </header>
+    <main id="mai">
+    </section>
+    <section id="menu">
+        
+        <section class="carousel-container">
+            <div class="carousel-items" id="carousel">
+                <div class="carousel-item">
+                    <h2>Appetizers</h2>
+                    <p>Fresh tomatoes, mozzarella, and basil drizzled with balsamic glaze, and basil.<a
+                        href="http://127.0.0.1:5501/resto.html">See more</a></p>
+                </div>
+                <div class="carousel-item">
+                    <h2>Main Courses </h2>
+                    <p>Salmon fillet seasoned and grilled to perfection, served with lemon butter sauce.<a
+                            href="http://127.0.0.1:5501/resto.html">See more</a></p>
+                </div>
+                <div class="carousel-item">
+                    <h2>Desserts</h2>
+                    <p>Assorted fruits and marshmallows served with rich chocolate fondue.<a
+                        href="http://127.0.0.1:5501/resto.html">See more</a></p>
+                </div>
+            </div>
+            <button class="carousel-button prev-button" onclick="prevItem()">
+                <</button>
+                <button class="carousel-button next-button" onclick="nextItem()">></button>
+        </section>
+        <script>
+            let currentIndex = 0;
+
+            function showItem(index) {
+                const carousel = document.getElementById('carousel');
+                const totalItems = carousel.children.length;
+                if (index >= totalItems) {
+                    currentIndex = 0;
+                } else if (index < 0) {
+                    currentIndex = totalItems - 1;
+                } else {
+                    currentIndex = index;
+                }
+                const offset = -currentIndex * 100 + '%';
+                carousel.style.transform = 'translateX(' + offset + ')';
+            }
+
+            function nextItem() {
+                showItem(currentIndex + 1);
+            }
+
+            function prevItem() {
+                showItem(currentIndex - 1);
+            }
+
+            // Initial item display
+            showItem(currentIndex);
+            </script>
+    </section>
+    <section id="about us">
+        <h2>About Us</h2>
+        <div id="tozont">
+            <iframe width="900" height="500"
+            src="https://www.youtube.com/embed/tgbNymZ7vqY">
+            </iframe>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+        </div>
+    <section>
+        <button style="background-color: green; color: aliceblue; width: 200px; height: 50px; margin: 100px 0 50px; border-radius: 10px;"><a href=""><span
+                    style="color: aliceblue;">Contact for reservations</span></a></button>
+    </section>
+    <hr>
+    </main>
+    <footer>
+        <div id="contact">
+            <h3 id="contactUs">Contact Us</h3>
+            <ul class="list">
+                <li>
+                    <img style="width: 20px;" src="instaicon.png" alt="instagram">
+                    <br>
+                    <a href="https://www.instagram.com">Instagram</a>
+                </li>
+                <br>
+                <li>
+                    <img style="width: 20px;" src="tele.jpg" alt="Tel">
+                    <br>
+                    Tel:+2120000000
+                </li>
+                <br>
+                <li>
+                    <img style="width: 20px;" src="maps.jpg" alt="maps">
+                    <br>
+                    <a href="">Delicious Bites Menu</a>
+                </li>
+            </ul>
+        </div>
+        <div id="message" class="div">
+            <label for="email">Email:</label>
+            <br>
+            <input type="email" id="email" name="email">
+            <br>
+            <label for="comment">comment</label>
+            <br>
+            <textarea name="message" cols="30" rows="6" id="message"
+                placeholder="Write your message here..."></textarea>
+            <br>
+            <input class="boton" style="background-color: blue; color: aliceblue;" type="submit" value="Submit">
+        </div>
+        <p>&copy; 2025 Youssef Aarabi</p>
+    </footer>
+</body>
+
+</html>
