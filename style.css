@@ -37,7 +37,6 @@ footer{
     color: rgb(1, 88, 250);
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
     justify-content: center;
     margin: 0 30px;
 }
@@ -52,7 +51,7 @@ footer{
     color: rgb(255, 255, 255);
     text-decoration: none;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+ 
 }
 #search {
     height: 35px;
@@ -81,7 +80,6 @@ section{
         border-radius: 4px;
         font-size: 16px;
         cursor: pointer;
-        transition: background-color 0.3s ease;
     }
     .div {
         padding: 30px;
@@ -101,7 +99,6 @@ section{
     .div textarea {
         width: 100%;
         padding: 10px;
-       
         border: 1px solid #ccc;
         border-radius: 4px;
         box-sizing: border-box;
